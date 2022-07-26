@@ -3,7 +3,7 @@ package org.launchcode.javawebdevtechjobsauthentication.controllers;
 
 import org.launchcode.javawebdevtechjobsauthentication.data.UserRepository;
 import org.launchcode.javawebdevtechjobsauthentication.models.User;
-import org.launchcode.javawebdevtechjobsauthentication.models.dto.LoginFormDTO;
+import org.launchcode.javawebdevtechjobsauthentication.models.dto.loginFormDTO;
 import org.launchcode.javawebdevtechjobsauthentication.models.dto.RegistrationFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,12 +58,12 @@ public class AuthenticationController {
 
     @GetMapping("/login")
     public String displayLoginForm(Model model){
-        model.addAttribute(new LoginFormDTO());
+        model.addAttribute(new loginFormDTO());
         model.addAttribute("title","Log In");
         return "login";
     }
     @PostMapping("/login")
-    public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO, Errors errors,HttpServletRequest request,Model model){
+    public String processLoginForm(@ModelAttribute @Valid loginFormDTO loginFormDTO, Errors errors, HttpServletRequest request, Model model){
         if(errors.hasErrors()){
             model.addAttribute("title","Log In");
             return "login";
